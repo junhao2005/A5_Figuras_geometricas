@@ -13,17 +13,29 @@ abstract class FiguraGeometrica {
     public function __destruct() {}
 
 
-    // ge
+    // getters y setters de TipoFigura y Lado1  
+    public function getTipoFigura() {
+        return $this->tipoFigura;
+    }
+    public function setTipoFigura($tipoFigura) {
+        $this->tipoFigura = $tipoFigura;
+    }
+
+    // getters y setters de Lado1  
+    public function getLado1() {
+        return $this->lado1;
+    }
+    public function setLado1($lado1) {
+        $this->lado1 = $lado1;
+    }
+
+    // Métodos abstractos para calcular el área  
+    abstract public function calcularArea();
+
     
 }
     
    
-
-
-
-
-
-
 
 
 ?>
