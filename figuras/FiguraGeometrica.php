@@ -9,33 +9,28 @@ abstract class FiguraGeometrica {
         $this->lado1 = $lado1;
     }
 
-    // Genera el constructor con todos sus atributos y el destructor
     public function __destruct() {}
 
-
-    // getters y setters de TipoFigura y Lado1  
+    // getters y setters de tipoFigura  
     public function getTipoFigura() {
         return $this->tipoFigura;
     }
+
     public function setTipoFigura($tipoFigura) {
         $this->tipoFigura = $tipoFigura;
     }
 
-    // getters y setters de Lado1  
+    // getters y setters de lado1  
     public function getLado1() {
         return $this->lado1;
     }
+
     public function setLado1($lado1) {
         $this->lado1 = $lado1;
     }
 
-    // Métodos abstractos para calcular el área  
+    // Método abstracto (las clases hijas lo implementan)
     abstract public function calcularArea();
-
-    
 }
-    
-   
-
 
 ?>

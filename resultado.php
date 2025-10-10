@@ -4,22 +4,23 @@ require_once './figuras/Rectangulo.php';
 require_once './figuras/Cuadrado.php';
 require_once './figuras/Circulo.php';
 
-$figura = $_POST['figura'] ?? null;
+$tipo = $_POST['figura'] ?? null;
 
-switch($figura){
+switch($tipo){
     case 'triangulo':
-        $fig = new Triangulo($_POST['lado1'], $_POST['lado2'], $_POST['lado3']);
+        $figura = new Triangulo($tipo, $_POST['lado1'], $_POST['lado2'], $_POST['lado3']);
         break;
     case 'rectangulo':
-        $fig = new Rectangulo($_POST['lado1'], $_POST['lado2']);
+        $figura = new Rectangulo($tipo, $_POST['lado1'], $_POST['lado2']);
         break;
     case 'cuadrado':
-        $fig = new Cuadrado($_POST['lado1']);
+        $figura = new Cuadrado($tipo, $_POST['lado1']);
         break;
     case 'circulo':
-        $fig = new Circulo($_POST['lado1']);
+        $figura = new Circulo($tipo, $_POST['lado1']);
         break;
-    default: die('Figura no válida');
+    default:
+        die('Figura no válida');
 }
 ?>
 
@@ -32,10 +33,10 @@ switch($figura){
 </head>
 <body>
 <div class="container">
-    <h2>Resultados</h2>
-    <p><strong>Descripción:</strong> <?= $fig->__toString() ?></p>
-    <p><strong>Área:</strong> <?= number_format($fig->calcularArea(), 2) ?></p>
-    <p><strong>Perímetro:</strong> <?= number_format($fig->calcularPerimetro(), 2) ?></p>
+    <h2>Resultados del <?= ucfirst($tipo) ?></h2>
+    <p><strong>Descripción:</strong> <?= $figura->__toString() ?></p>
+    <p><strong>Área:</strong> <?= number_format($figura->calcularArea(), 2) ?></p>
+    <p><strong>Perímetro:</strong> <?= number_format($figura->calcularPerimetro(), 2) ?></p>
     <br>
     <a href="index.php">← Volver al inicio</a>
 </div>

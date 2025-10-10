@@ -6,8 +6,8 @@ class Triangulo extends FiguraGeometrica {
     private $lado2;
     private $lado3;
 
-    public function __construct($lado1, $lado2, $lado3) {
-        parent::__construct("Triangulo", $lado1);
+    public function __construct($tipoFigura, $lado1, $lado2, $lado3) {
+        parent::__construct($tipoFigura, $lado1);
         $this->lado2 = $lado2;
         $this->lado3 = $lado3;
     }  

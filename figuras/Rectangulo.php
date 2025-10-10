@@ -7,8 +7,8 @@ class Rectangulo extends FiguraGeometrica {
 
     //Genera el constructor con todos sus atributos y el destructor.
 
-    public function __construct($lado1, $lado2) {
-        parent::__construct("Rectangulo", $lado1);
+    public function __construct($tipoFigura, $lado1, $lado2) {
+        parent::__construct($tipoFigura, $lado1);
         $this->lado2 = $lado2;
     }
 
