@@ -25,20 +25,21 @@ switch($tipo){
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultado</title>
+    <title>Resultado - <?= ucfirst($tipo) ?></title>
     <link rel="stylesheet" href="./css/estilo.css">
 </head>
 <body>
-<div class="container">
-    <h2>Resultados del <?= ucfirst($tipo) ?></h2>
-    <p><strong>Descripción:</strong> <?= $figura->__toString() ?></p>
-    <p><strong>Área:</strong> <?= number_format($figura->calcularArea(), 2) ?></p>
-    <p><strong>Perímetro:</strong> <?= number_format($figura->calcularPerimetro(), 2) ?></p>
-    <br>
-    <a href="index.php">← Volver al inicio</a>
-</div>
+    <div class="container result">
+        <h1 class="title">✨ Resultado del <?= ucfirst($tipo) ?></h1>
+        <div class="result-card">
+            <p><strong>📏 Descripción:</strong> <?= $figura->__toString() ?></p>
+            <p><strong>📐 Área:</strong> <span><?= number_format($figura->calcularArea(), 2) ?></span></p>
+            <p><strong>📏 Perímetro:</strong> <span><?= number_format($figura->calcularPerimetro(), 2) ?></span></p>
+        </div>
+        <a href="index.php" class="btn-back">← Volver al inicio</a>
+    </div>
 </body>
 </html>

@@ -1,50 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
 
-
+/* ---------- FONDO ANIMADO NEÓN ---------- */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #3882f0;
-    color: #333;
+    font-family: 'Space Grotesk', sans-serif;
+    background: radial-gradient(circle at top left, #ff4d8f, #6536ff, #00d4ff);
+    background-size: 400% 400%;
+    animation: colorFlow 12s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
+@keyframes colorFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------- TARJETA GLASS ---------- */
 .container {
-    background-color: #fff;
-    padding: 40px 50px;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 50px 60px;
     text-align: center;
-    width: 320px;
+    width: 380px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+    animation: fadeIn 0.6s ease-out;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
+.container:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.15);
 }
 
+/* ---------- TEXTOS ---------- */
+.title {
+    font-size: 1.9rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin-bottom: 30px;
+}
+
+/* ---------- SELECT ---------- */
 select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: none;
     font-size: 16px;
-    margin-bottom: 20px;
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
+select:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 77, 143, 0.5);
+}
+
+/* Estilo del dropdown */
+select option {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+/* ---------- BOTÓN ---------- */
 input[type="submit"] {
-    background-color: #3498db;
-    color: white;
+    width: 100%;
+    background: linear-gradient(135deg, #ff4d8f, #6536ff, #00d4ff);
+    background-size: 200% 200%;
+    color: #fff;
     border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 25px rgba(255, 77, 143, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: pulseGlow 3s infinite alternate;
 }
 
 input[type="submit"]:hover {
-    background-color: #2980b9;
+    background-position: 100% 0;
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+}
+
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 20px rgba(255, 77, 143, 0.4); }
+    100% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.5); }
+}
+
+/* ---------- ANIMACIONES ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 40px 30px;
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+
+    input[type="submit"], select {
+        font-size: 15px;
+    }
+}
+
+
+
+/* ---------- PÁGINA DE RESULTADOS ---------- */
+.result {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+    padding: 30px 25px;
+    margin-bottom: 30px;
+    text-align: left;
+    color: #f8fafc;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 25px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.15);
+}
+
+.result-card p {
+    margin: 10px 0;
+}
+
+.result-card span {
+    font-weight: 600;
+    color: #00d4ff;
+}
+
+/* ---------- BOTÓN DE VOLVER ---------- */
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ff4d8f, #6536ff, #00d4ff);
+    background-size: 200% 200%;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+}
+
+.btn-back:hover {
+    background-position: 100% 0;
+    box-shadow: 0 6px 25px rgba(255, 77, 143, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-back:active {
+    transform: translateY(0);
+}
+
+
+
+/* ---------- FORMULARIO DE DATOS ---------- */
+.form-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-inputs input[type="number"] {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+    font-size: 16px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-inputs input[type="number"]:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.form-inputs input[type="number"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Botón principal */
+.form-inputs input[type="submit"] {
+    margin-top: 10px;
+    width: 100%;
+    background: linear-gradient(135deg, #ff4d8f, #6536ff, #00d4ff);
+    background-size: 200% 200%;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 20px rgba(255, 77, 143, 0.4);
+    animation: pulseGlow 3s infinite alternate;
+}
+
+.form-inputs input[type="submit"]:hover {
+    background-position: 100% 0;
+    transform: scale(1.04);
+    box-shadow: 0 8px 28px rgba(0, 212, 255, 0.5);
+}
+
+.form-inputs input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* ---------- ENLACE DE VOLVER ---------- */
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(135deg, #6536ff, #00d4ff);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-back:hover {
+    background-position: 100% 0;
+    box-shadow: 0 6px 20px rgba(255, 77, 143, 0.4);
+    transform: translateY(-2px);
 }
