@@ -1,21 +1,47 @@
-// Validación para index.php
+// Validar selección de figura (index.php)
 function validarFigura() {
-    const figura = document.getElementById("figura").value;
-    if (figura === "") {
-        alert("⚠️ Debes seleccionar una figura antes de continuar.");
+    const figura = document.getElementById('figura');
+    let error = figura.nextElementSibling;
+
+    if (!error || !error.classList.contains('error')) {
+        error = document.createElement('span');
+        error.className = 'error';
+        error.style.color = 'red';
+        figura.parentNode.insertBefore(error, figura.nextSibling);
+    }
+
+    if (!figura.value) {
+        error.textContent = "Debes seleccionar una figura";
         return false;
     }
+
+    error.textContent = "";
     return true;
 }
 
-// Validación para datos.php
+// Validar inputs de medidas (datos.php)
 function validarDatos() {
-    const campos = document.querySelectorAll('input[type="number"]');
-    for (let c of campos) {
-        if (c.value === "" || c.value <= 0) {
-            alert("⚠️ Ingresa valores válidos en todos los campos.");
-            return false;
+    let valido = true;
+    document.querySelectorAll('.form-inputs input[type="number"]').forEach(input => {
+        let error = input.nextElementSibling;
+        if (!error || !error.classList.contains('error')) {
+            error = document.createElement('span');
+            error.className = 'error';
+            error.style.color = 'red';
+            input.parentNode.insertBefore(error, input.nextSibling);
         }
-    }
-    return true;
+
+        if (!input.value || Number(input.value) <= 0) {
+            error.textContent = "Ingrese un número positivo";
+            valido = false;
+        } else {
+            error.textContent = "";
+        }
+
+        // Borrar error al corregir
+        input.onblur = () => {
+            if (input.value && Number(input.value) > 0) error.textContent = "";
+        };
+    });
+    return valido;
 }

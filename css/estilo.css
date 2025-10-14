@@ -3,7 +3,7 @@
 /* ---------- FONDO ANIMADO NEÓN ---------- */
 body {
     font-family: 'Space Grotesk', sans-serif;
-    background: radial-gradient(circle at top left, #9733b1, #eb2c2c, #00d4ff);
+    background: radial-gradient(circle at top left, #3c8d9b, #da7474, #00d4ff);
     background-size: 400% 400%;
     animation: colorFlow 12s ease infinite;
     display: flex;
