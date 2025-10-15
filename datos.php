@@ -14,18 +14,16 @@ if (!$figura) {
 <head>
     <meta charset="UTF-8">
     <title>Datos de la figura</title>
-    <!-- CSS de la página -->
     <link rel="stylesheet" href="./css/estilo.css">
-    <!-- JS para validar inputs antes de enviar -->
     <script src="./js/validar.js"></script>
 </head>
 <body>
     <div class="container form-container">
-        <!-- Título dinámico según figura -->
+        <!-- Titulo según figura -->
         <h1 class="title">📏 Datos del <?= ucfirst($figura) ?></h1>
         <p class="subtitle">Introduce las medidas necesarias</p>
 
-        <!-- Imagen correspondiente a la figura seleccionada -->
+      <!-- img segun figura -->
         <div class="figura-imagen">
             <?php
             switch ($figura) {
@@ -45,7 +43,7 @@ if (!$figura) {
             ?>
         </div>
 
-        <!-- Formulario para introducir medidas según la figura -->
+        <!-- Formulario para introducir medidas segun la figura -->
         <form action="resultado.php" method="post" class="form-inputs" onsubmit="return validarDatos();">
             <!-- Enviamos la figura seleccionada como campo oculto -->
             <input type="hidden" name="figura" value="<?= htmlspecialchars($figura); ?>">
@@ -71,8 +69,8 @@ if (!$figura) {
             }
             ?>
             <br><br>
-            <!-- Botón para enviar los datos -->
-            <input type="submit" value="✨ Calcular">
+          
+            <input type="submit" value="Calcular">
         </form>
 
         <!-- Enlace para volver a index.php -->

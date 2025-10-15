@@ -5,7 +5,7 @@ function validarFigura() {
     const figura = document.getElementById('figura'); // Captura el select
     let error = figura.nextElementSibling; // Verifica si ya existe un span de error
 
-    // Si no existe, lo crea dinámicamente
+    // Si no existe, lo crea dinamicamente
     if (!error || !error.classList.contains('error')) {
         error = document.createElement('span'); // Crea span
         error.className = 'error';               // Le asigna clase
@@ -29,7 +29,7 @@ function validarFigura() {
 function validarDatos() {
     let valido = true; // Bandera general de validez
 
-    // Recorre todos los inputs numéricos del formulario
+    // Recorre todos los inputs numericos del formulario
     document.querySelectorAll('.form-inputs input[type="number"]').forEach(input => {
         let error = input.nextElementSibling; // Verifica si ya existe span de error
 
@@ -41,10 +41,10 @@ function validarDatos() {
             input.parentNode.insertBefore(error, input.nextSibling);
         }
 
-        // Validación: campo vacío o número <= 0
+        // Validación: campo vacio o numero <= 0
         if (!input.value || Number(input.value) <= 0) {
             error.textContent = "Ingrese un número positivo";
-            valido = false; // Marca formulario como inválido
+            valido = false; // Marca formulario como invalido
         } else {
             error.textContent = ""; // Borra mensaje si válido
         }
@@ -55,5 +55,5 @@ function validarDatos() {
         };
     });
 
-    return valido; // Devuelve true si todos los campos son válidos
+    return valido; // Devuelve true si todos los campos son validos
 }
